@@ -50,4 +50,4 @@ jobs:
             echo "Probando conexion ssh"
             hostname
             whoami
-            update
+            apt update
