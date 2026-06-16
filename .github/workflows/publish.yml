@@ -42,10 +42,10 @@ jobs:
       - name: Probar la ssh en el vps
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.VPS_HOST }}"
-          username: ${{ secrets.VPS_USER }}"
-          password: ${{ secrets.VPS_PASSWORD }}"
-          port: ${{ secrets.VPS_SSH_PORT }}"
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: ${{ secrets.VPS_SSH_PORT }}
           script: |
             echo "Probando conexion ssh"
             hostname
