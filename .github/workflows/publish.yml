@@ -48,10 +48,8 @@ jobs:
           port: ${{ secrets.VPS_SSH_PORT }}
           script: |
             echo "Probando conexion ssh"
-            hostname
-            whoami
-            sudo apt update
-
+            touch quintoa.txt
+ 
             
 
 
