@@ -17,11 +17,11 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.smith.entrypoints=http"
-        - "traefik.http.routers.smith.rule=Host(`tecticom.byronrm.com`)"
+        - "traefik.http.routers.smith.rule=Host(`smith.byronrm.com`)"
         - "traefik.http.middlewares.smith-https-redirect.redirectscheme.scheme=https"
         - "traefik.http.routers.smith.middlewares=smith-https-redirect"
         - "traefik.http.routers.smith-secure.entrypoints=https"
-        - "traefik.http.routers.smith-secure.rule=Host(`tecticom.byronrm.com`)"
+        - "traefik.http.routers.smith-secure.rule=Host(`smith.byronrm.com`)"
         - "traefik.http.routers.smith-secure.tls=true"
         - "traefik.http.routers.smith-secure.tls.certresolver=http"
         - "traefik.http.routers.smith-secure.service=smith"
