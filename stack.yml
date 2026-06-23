@@ -2,12 +2,10 @@ version: '3.8'
 
 services:
   smith:
-    image: ghcr.io/byronmoreno/tecticom:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/ksanivesela/holaflask-devops:latest
     networks:
       - traefik-public
+
     deploy:
       replicas: 1
       update_config:
@@ -15,17 +13,18 @@ services:
         delay: 10s
       restart_policy:
         condition: on-failure
+
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.smith.entrypoints=http"
         - "traefik.http.routers.smith.rule=Host(`tecticom.byronrm.com`)"
         - "traefik.http.middlewares.smith-https-redirect.redirectscheme.scheme=https"
-        - "traefik.http.routers.smith.middlewares=tecticom-https-redirect"
+        - "traefik.http.routers.smith.middlewares=smith-https-redirect"
         - "traefik.http.routers.smith-secure.entrypoints=https"
         - "traefik.http.routers.smith-secure.rule=Host(`tecticom.byronrm.com`)"
         - "traefik.http.routers.smith-secure.tls=true"
         - "traefik.http.routers.smith-secure.tls.certresolver=http"
-        - "traefik.http.routers.smith-secure.service=tecticom"
+        - "traefik.http.routers.smith-secure.service=smith"
         - "traefik.http.services.smith.loadbalancer.server.port=5000"
         - "traefik.docker.network=traefik-public"
 
