@@ -60,7 +60,7 @@ jobs:
           source: "stack.yml,Makefile"
           target: "/home/${{ secrets.VPS_USER }}/landinga"
 
-            - name: Desplegar en VPS
+      - name: Desplegar en VPS
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
