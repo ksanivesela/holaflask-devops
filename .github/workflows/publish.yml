@@ -63,13 +63,13 @@ jobs:
       - name: Paso 1 descagar la imagen 
         run: |         
           echo "==> descargando la imagen del GHCR"
-          echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-          docker pull ghcr.io/byronmoreno/tecticom:1.0.0
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker pull ghcr.io/ksanivesela/holaflask-devops:latest
 
       - name: Paso 3 de
         run: |
           echo "==> Desplegando stack..."
-          docker stack deploy -c stack.yml --with-registry-auth tecticom
+          docker stack deploy -c stack.yml borrar
 
           docker ps
           
